@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 import { toast } from '@/hooks/use-toast';
-import { Download, Upload, Settings as SettingsIcon, Palette, Database, Bot, Zap } from 'lucide-react';
+import { Download, Upload, Settings as SettingsIcon, Palette, Database, Bot, Zap, Github } from 'lucide-react';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
@@ -95,6 +95,8 @@ export function Settings() {
       <h2 className="text-2xl font-bold gradient-text-primary">Settings</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+
         <Card>
           <CardHeader>
             <CardTitle>Data Management</CardTitle>
