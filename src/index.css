@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* OmniReader Design System - Modern Manga/Anime Inspired */
+
+@layer base {
+  :root {
+    /* Core Background */
+    --background: 230 35% 7%;
+    --foreground: 210 20% 98%;
+
+    /* Card System */
+    --card: 230 35% 11%;
+    --card-foreground: 210 20% 98%;
+
+    /* Interactive Elements */
+    --popover: 230 35% 11%;
+    --popover-foreground: 210 20% 98%;
+
+    /* Primary Brand - Vibrant Purple */
+    --primary: 270 91% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 100% 75%;
+
+    /* Secondary - Neon Cyan */
+    --secondary: 190 100% 60%;
+    --secondary-foreground: 230 35% 7%;
+
+    /* Accent - Electric Pink */
+    --accent: 320 100% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --success: 150 100% 60%;
+    --warning: 45 100% 60%;
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Neutral Tones */
+    --muted: 230 20% 20%;
+    --muted-foreground: 210 15% 70%;
+    --border: 230 20% 25%;
+    --input: 230 20% 15%;
+    --ring: 270 91% 65%;
+
+    /* Manga Type Colors */
+    --manga-color: 25 100% 65%;
+    --manhwa-color: 140 100% 60%;
+    --manhua-color: 0 100% 65%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(190 100% 75%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(320 100% 85%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(230 35% 13%) 100%);
+
+    /* Shadows */
+    --shadow-primary: 0 10px 30px -5px hsl(var(--primary) / 0.3);
+    --shadow-secondary: 0 10px 30px -5px hsl(var(--secondary) / 0.3);
+    --shadow-accent: 0 10px 30px -5px hsl(var(--accent) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-card: 0 8px 32px -8px hsl(230 35% 5% / 0.6);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Mobile */
+    --mobile-header: 64px;
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 230 35% 9%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 270 91% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 35% 13%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 230 20% 25%;
+    --sidebar-ring: 270 91% 65%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 230 35% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 230 35% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 35% 7%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 230 15% 40%;
+    --border: 210 40% 90%;
+    --input: 210 40% 95%;
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    --shadow-card: 0 8px 32px -8px hsl(230 35% 15% / 0.1);
+  }
+
+  /* Custom Themes */
+  .theme-ocean-blue {
+    --primary: 200 90% 50%; /* Ocean Blue */
+    --primary-glow: 200 100% 65%;
+    --secondary: 220 70% 60%; /* Deeper Blue */
+    --accent: 180 70% 60%; /* Aqua */
+  }
+
+  .theme-forest-green {
+    --primary: 120 60% 40%; /* Forest Green */
+    --primary-glow: 120 70% 55%;
+    --secondary: 90 50% 50%; /* Lighter Green */
+    --accent: 30 70% 60%; /* Earthy Orange */
+  }
+
+  .theme-sunset-orange {
+    --primary: 25 90% 60%; /* Sunset Orange */
+    --primary-glow: 35 100% 70%;
+    --secondary: 0 80% 65%; /* Fiery Red */
+    --accent: 45 90% 60%; /* Golden Yellow */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--secondary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(var(--accent) / 0.1) 0%, transparent 50%);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-secondary);
+  }
+
+  /* Glowing effects */
+  .glow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--shadow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Gradient text */
+  .gradient-text-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-hero {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Mobile optimizations */
+  .mobile-safe-area {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improved scrolling for mobile */
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Mobile-friendly image upload */
+  .image-upload-area {
+    border: 2px dashed hsl(var(--border));
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+  }
+
+  .image-upload-area:hover {
+    border-color: hsl(var(--primary));
+    background-color: hsl(var(--primary) / 0.05);
+  }
+
+  .image-upload-area.drag-over {
+    border-color: hsl(var(--primary));
+    background-color: hsl(var(--primary) / 0.1);
+    transform: scale(1.02);
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse glow animation */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--shadow-primary); }
+    50% { box-shadow: var(--shadow-glow); }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Media Queries for Responsive Design */
+
+/* Honor 200 (1200px) and smaller */
+@media (max-width: 1200px) {
+  .main-container {
+    padding: 0 1rem;
+  }
+}
+
+/* Tablets (768px) and smaller */
+@media (max-width: 768px) {
+  .grid-cols-5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Smartphones (640px) and smaller */
+@media (max-width: 640px) {
+  .grid-cols-5,
+  .grid-cols-4,
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .manga-card {
+    flex-direction: column;
+  }
+
+  .manga-card-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .manga-card-content {
+    padding: 1rem;
+  }
+}
